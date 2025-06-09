@@ -56,4 +56,6 @@ void wait_entry_btn_pushed();
 void change_action(int, COLOR_VER *);
 void adjust_stop_distance();
 
+void pid_motor_steer();
+
 #endif /* APP_H_ */
