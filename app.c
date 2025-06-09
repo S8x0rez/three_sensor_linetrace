@@ -27,6 +27,7 @@ bool_t g_run_flag = true;
 int sys_stat = 0;
 COLOR_VER color;
 FONT_PROPERTY	l_font_property = {EV3_FONT_MEDIUM};
+int steer_ratio = 0;
 
 char left[16],center[16],right[16];
 
@@ -148,4 +149,10 @@ void adjust_stop_distance()
 	}
 
 	all_motor_stop();
+}
+
+void pid_motor_steer()
+{
+	ev3_motor_steer(PORT_LEFT_MOTOR, PORT_RIGHT_MOTOR, MAX_MOTOR_POWER, steer_ratio);
+	steer_ratio = steer_ratio >> 1 * -1;
 }
